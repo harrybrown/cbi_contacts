@@ -26,6 +26,10 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
 
+    if(params[:contact][:first_name].nil?)
+      flash[:error] = "First name should not be blank.\n"
+    end
+
     respond_to do |format|
       if @contact.save
         format.html { redirect_to @contact, notice: 'Contact was successfully created.' }
