@@ -4,13 +4,13 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @all_first_names = Contact.select(:first_name).distinct
-    @all_last_names = Contact.select(:last_name).distinct
+    @all_first_names = Contact.select(:first_name).distinct.order("first_name ASC")
+    @all_last_names = Contact.select(:last_name).distinct.order("last_name ASC")
     @contacts = Contact.first_name_search(params[:first_name_search])
     if params[:first_name_search]
-    @contacts = Contact.first_name_search(params[:first_name_search]).order("created_at DESC")
+    @contacts = Contact.first_name_search(params[:first_name_search]).order("first_name ASC")
     elsif params[:last_name_search]
-    @contacts = Contact.last_name_search(params[:last_name_search]).order("created_at DESC")
+    @contacts = Contact.last_name_search(params[:last_name_search]).order("last_name ASC")
   else
     @contacts = Contact.all.order('created_at DESC')
   end
