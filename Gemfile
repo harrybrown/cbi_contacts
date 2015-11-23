@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 #for password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'pry-rails', '~> 0.3.4'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
