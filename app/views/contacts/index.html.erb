@@ -6,8 +6,9 @@
 
 
 <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "First Name" %>
-<%= submit_tag "Search", :name => nil %>
+<%= select_tag   :search ,
+    options_from_collection_for_select(@all_first_names, 'first_name', 'first_name', 15),
+    :prompt => 'Search by First Name', :onchange => "this.form.submit();"  %>
 <% end %>
 
 

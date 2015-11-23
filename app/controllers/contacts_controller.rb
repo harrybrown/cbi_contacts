@@ -4,6 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
+    @all_first_names = Contact.select(:first_name).distinct
     @contacts = Contact.search(params[:search])
     if params[:search]
     @contacts = Contact.search(params[:search]).order("created_at DESC")
