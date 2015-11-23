@@ -35,6 +35,21 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
 
     <%= javascript_include_tag "application" %>
+    <script>
+      $(function() {
+
+      var availableTags = JSON.parse("<%= (Contact.all.collect{|f| f.first_name}).uniq! %>".replace(/&quot;/g,'"'));
+      $( "#first_name_search" ).autocomplete({
+        source: availableTags,
+        select: function(event, ui){
+              $('#first_name_search').val(ui.item.value)
+              $('#search_form').submit()
+        }
+      });
+
+        });
+    </script>
+
   </head>
   <body>
 
