@@ -48,6 +48,20 @@
           }
         });
       });
+
+      $(function() {
+        var availableTags = JSON.parse("<%= (Contact.all.collect{|f| f.last_name}).uniq! %>".replace(/&quot;/g,'"'));
+        $( "#last_name_search" ).autocomplete({
+          source: availableTags,
+          select: function(event, ui){
+            if(ui.item){
+              $('#last_name_search').val(ui.item.value);
+            }
+            $('#last_search-form').submit()
+          }
+        });
+      });
+ 
     </script>
 
   </head>

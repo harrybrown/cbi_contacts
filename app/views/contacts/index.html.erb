@@ -14,9 +14,8 @@
     </td>
     <td>&nbsp;OR&nbsp;</td>
     <td>
-      <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
-        <%= text_field_tag :last_name_search, params[:last_name_search], placeholder: "Last Name" %>
-        <%= submit_tag "Search", :name => nil %>
+      <%= form_tag(contacts_path, :method => "get", id: "last_search-form") do %>
+        <%= text_field_tag :last_name_search, params[:last_name_search], placeholder: "Last Name"%>
       <% end %>
     </td>
   </tr>
