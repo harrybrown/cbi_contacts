@@ -4,12 +4,25 @@
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
 
-
-<%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
-<%= select_tag   :search ,
-    options_from_collection_for_select(@all_first_names, 'first_name', 'first_name', 15),
-    :prompt => 'Search by First Name', :onchange => "this.form.submit();"  %>
-<% end %>
+<table style="margin-bottom: 40px;">
+  <tr>
+    <td>
+      <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
+        <%= select_tag :first_name_search ,
+          options_from_collection_for_select(@all_first_names, 'first_name', 'first_name', 15),
+          :prompt => 'Search by First Name', :onchange => "this.form.submit();"  %>
+      <% end %>
+    </td>
+    <td>&nbsp;OR&nbsp;</td>
+    <td>
+      <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
+        <%= select_tag :last_name_search,
+          options_from_collection_for_select(@all_last_names, 'last_name', 'last_name', 15),
+          :prompt => 'Search by Last Name', :onchange => "this.form.submit();"  %>
+      <% end %>
+    </td>
+  </tr>
+</table>
 
 
 <table class="table table-striped">
