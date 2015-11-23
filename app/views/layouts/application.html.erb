@@ -37,17 +37,17 @@
     <%= javascript_include_tag "application" %>
     <script>
       $(function() {
-
-      var availableTags = JSON.parse("<%= (Contact.all.collect{|f| f.first_name}).uniq! %>".replace(/&quot;/g,'"'));
-      $( "#first_name_search" ).autocomplete({
-        source: availableTags,
-        select: function(event, ui){
-              $('#first_name_search').val(ui.item.value)
-              $('#search_form').submit()
-        }
-      });
-
+        var availableTags = JSON.parse("<%= (Contact.all.collect{|f| f.first_name}).uniq! %>".replace(/&quot;/g,'"'));
+        $( "#first_name_search" ).autocomplete({
+          source: availableTags,
+          select: function(event, ui){
+            if(ui.item){
+              $('#first_name_search').val(ui.item.value);
+            }
+            $('#first_search-form').submit()
+          }
         });
+      });
     </script>
 
   </head>
