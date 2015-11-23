@@ -21,7 +21,26 @@
           :prompt => 'Search by Last Name', :onchange => "this.form.submit();"  %>
       <% end %>
     </td>
-    <td style="padding-left: 20px;"><%= link_to("View All Contacts", contacts_path) %>
+    <td style="padding-left: 20px;"><%= link_to("View All Contacts", contacts_path) %></td>
+  </tr>
+</table>
+
+<table style="margin-bottom: 40px;">
+  <tr>
+    <td>
+      <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :first_name_search, params[:first_name_search], placeholder: "First Name" %>
+        <%= submit_tag "Search", :name => nil %>
+
+      <% end %>
+    </td>
+    <td>&nbsp;OR&nbsp;</td>
+    <td>
+      <%= form_tag(contacts_path, :method => "get", id: "search-form") do %>
+        <%= text_field_tag :last_name_search, params[:last_name_search], placeholder: "Last Name" %>
+        <%= submit_tag "Search", :name => nil %>
+      <% end %>
+    </td>
   </tr>
 </table>
 
