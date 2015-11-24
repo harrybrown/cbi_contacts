@@ -36,6 +36,8 @@
 
     <%= javascript_include_tag "application" %>
     <script>
+
+    $( document ).ready(function() {
       $(function() {
         var availableTags = JSON.parse("<%= (Contact.all.collect{|f| f.first_name}).uniq! %>".replace(/&quot;/g,'"'));
         $( "#first_name_search" ).autocomplete({
@@ -61,7 +63,7 @@
           }
         });
       });
- 
+    });
     </script>
 
   </head>
