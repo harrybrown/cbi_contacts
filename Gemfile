@@ -5,6 +5,7 @@ gem 'pry-rails', '~> 0.3.4'
 gem "therubyracer"
 gem "less-rails"
 gem 'twitter-bootstrap-rails', github: 'seyhunak/twitter-bootstrap-rails', branch: 'bootstrap3'
+gem 'seed_dump'
 
 gem 'rails_12factor', group: :production
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
