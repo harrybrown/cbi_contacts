@@ -1,8 +1,12 @@
 require 'rails_helper'
 
-RSpec.describe Contact, type: :model do
 
- 
+RSpec.describe Contact, type: :model do
+    it "creates a user using Factory Girl specs" do
+      contact = FactoryGirl.create(:contact)
+      expect(contact.last_name).to eq('Nemecek')
+    end
+
     it "allows reading and writing for :first_name" do
       contact = Contact.new
       contact.first_name = 'John'
