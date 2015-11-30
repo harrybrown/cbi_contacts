@@ -65,5 +65,5 @@
 
 
 
-<%= link_to "Delete All Contacts", remove_all_contacts_path, :method => :get, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+<%= button_to "Delete All Contacts", remove_all_contacts_path, :id=> :delete_all_contacts, :method => :get, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
                       :class => 'btn btn-xs btn-danger' %>
